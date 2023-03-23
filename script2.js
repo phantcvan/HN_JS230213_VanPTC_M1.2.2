@@ -9,12 +9,9 @@ function addButton() {
     };
     if (listPlayer == null) {
         listPlayer = [];
-        listPlayer.push(player);
-        localStorage.setItem("listPlayer", JSON.stringify(listPlayer));
-    } else {
-        listPlayer.push(player);
-        localStorage.setItem("listPlayer", JSON.stringify(listPlayer));
     }
+        listPlayer.push(player);
+        localStorage.setItem("listPlayer", JSON.stringify(listPlayer));
     renderPlayer();
     renderCount();
 }
@@ -95,10 +92,9 @@ function downPlayer(index) {
 
 
 function renderCount() {
-    let a = 0;
+    let sum = 0;
     for (i = 0; i < listPlayer.length; i++) {
-        a += listPlayer[i].score;
-        sum = a;
+        sum += listPlayer[i].score;
     }
     let result = `
           <div>Players: ${listPlayer.length}</div>
