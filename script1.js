@@ -30,7 +30,7 @@ function reviewTA() {
 
 }
 function render() {
-    let listReview = JSON.parse(localStorage.getItem("listReview"));
+    localStorage.setItem("listReview", JSON.stringify(listReview));
     // Tính TB
     let sum = 0;
     for (let i = 0; i < listReview.length; i++) {
