@@ -1,5 +1,25 @@
 
 let listReview = JSON.parse(localStorage.getItem("listReview"));
+
+
+let lastClickedButton = null;
+
+function changeButtonColor(button) {
+    if (lastClickedButton !== null) {
+        lastClickedButton.style.backgroundColor = "";
+    }
+    button.style.backgroundColor = "rgb(237,89,136)";
+    lastClickedButton = button;
+}
+
+for (let i = 1; i <= 15; i++) {
+    const button = document.getElementById("button" + i);
+    if (button) {
+        button.addEventListener("click", function() {
+            changeButtonColor(button);
+        });
+    }
+}
 let point = 0;
 let inputs = document.querySelectorAll('.rateButton');
 inputs.forEach(function (input) {
@@ -7,10 +27,12 @@ inputs.forEach(function (input) {
         point = input.value;
     });
 });
+
+
 function reviewTA() {
     let review = document.getElementById("userfb").value;
     if (review.length < 10) {
-        document.getElementById("noti").innerHTML = "Hãy nhập tối thiểu 10 ký tự"
+        document.getElementById("noti").innerHTML = "Text must be at least 10 charaters"
         return;
     }
     if (listReview == null) {
@@ -35,6 +57,7 @@ function reviewTA() {
     console.log(listReview);
     render();
     localStorage.setItem("listReview", JSON.stringify(listReview));
+    document.getElementById("userfb").value="";
 
 }
 function render() {
@@ -50,10 +73,11 @@ function render() {
 
     for (let i = 0; i < listReview.length; i++) {
         result += ` <div class="reviewDisplay" id="reviewDisplay">
+        <div class="reviewPoint">
         <button class="point">${listReview[i].point}</button>
         <div>
-        <button class="icon" onclick="editReview(${i})"><i class="fa-solid fa-pen-to-square icon"></i></button>
-        <button class="icon" onclick="deleteReview(${i})"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+        <i style="font-size: larger; margin: 0px 5px;"  class="fa-solid fa-pen-to-square icon" onclick="editReview(${i})"></i>
+        <i style="font-size: larger; margin: 0px 5px;"  class="fa-sharp fa-solid fa-xmark" onclick="deleteReview(${i})"></i>
         </div>
         </div>
         <div>
@@ -78,10 +102,12 @@ function editReview(id) {
 
 
 
-
 // Xoá review
 function deleteReview(id) {
-    listReview.splice(id, 1);
+    let accept = confirm('Are you sure you want to delete?')
+    if (accept){
+        listReview.splice(id, 1);
+    }
     localStorage.setItem("listReview", JSON.stringify(listReview));
     render();
 }
