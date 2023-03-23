@@ -11,6 +11,7 @@ function reviewTA() {
     let review = document.getElementById("userfb").value;
     if (review.length < 10) {
         document.getElementById("noti").innerHTML = "Hãy nhập tối thiểu 10 ký tự"
+        return;
     }
     if (listReview == null) {
         listReview = [];
@@ -20,6 +21,14 @@ function reviewTA() {
         point: point,
         review: review,
         count: count,
+    }
+    let flag = JSON.parse(localStorage.getItem("flag"));
+    if (flag != null) {
+        listReview.splice(flag, 1, reviewUser);
+        localStorage.removeItem("flag");
+        localStorage.setItem("listReview", JSON.stringify(listReview));
+        render();
+        return;
     }
 
     listReview.push(reviewUser);
@@ -48,7 +57,7 @@ function render() {
         </div>
         </div>
         <div>
-        <p class="displayFeedback">${listReview[i].review}</p>
+        <p>${listReview[i].review}</p>
         </div>
         </div>
         `
@@ -61,7 +70,7 @@ render();
 
 // Edit review
 function editReview(id) {
-    let listReview = JSON.parse(localStorage.getItem("listReview"));
+    // let listReview = JSON.parse(localStorage.getItem("listReview"));
     let reviewUser = listReview[id];
     document.getElementById("userfb").value = reviewUser.review;
     localStorage.setItem("flag", id);
@@ -72,7 +81,6 @@ function editReview(id) {
 
 // Xoá review
 function deleteReview(id) {
-    let listReview = JSON.parse(localStorage.getItem("listReview"));
     listReview.splice(id, 1);
     localStorage.setItem("listReview", JSON.stringify(listReview));
     render();

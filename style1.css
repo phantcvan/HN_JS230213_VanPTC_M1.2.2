@@ -83,15 +83,12 @@ section #noti{
 .total span{
     margin:5% 13%;
 }
-.display{
+.result{
     background-color: #fff;
     border: 1px solid rgb(29,29,57);
     border-radius: 5px;
     width:80%;
-    margin: 0 auto;
-}
-.result{
-margin:5px;
+    margin: 10px auto;
 }
 .result .point{
     width: 40px;
@@ -114,11 +111,13 @@ margin:5px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-
+    padding: 5px;
 
 }
-.display .displayFeedback{
+p{
     margin: 0px 20px 20px;
+    padding: 5px;
+
 }
 
 

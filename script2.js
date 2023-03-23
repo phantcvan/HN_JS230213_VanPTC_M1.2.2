@@ -10,8 +10,8 @@ function addButton() {
     if (listPlayer == null) {
         listPlayer = [];
     }
-        listPlayer.push(player);
-        localStorage.setItem("listPlayer", JSON.stringify(listPlayer));
+    listPlayer.push(player);
+    localStorage.setItem("listPlayer", JSON.stringify(listPlayer));
     renderPlayer();
     renderCount();
 }
@@ -79,6 +79,15 @@ function renderPlayer() {
 function upPlayer(index) {
     listPlayer[index].score++;
     localStorage.setItem("listPlayer", JSON.stringify(listPlayer));
+    // let flagCrown = 0;
+    // let max = listPlayer[0].score;
+    // for (i = 0; i < listPlayer.length; i++) {
+    //     if (listPlayer[i].score > max) {
+    //         max = listPlayer[i].score;
+
+    //     }
+    // }
+
     renderPlayer();
     renderCount();
 }
