@@ -4,7 +4,6 @@ let point = 0;
 let inputs = document.querySelectorAll('.rateButton');
 inputs.forEach(function (input) {
     input.addEventListener('click', function () {
-        input.classList = ""
         point = input.value;
     });
 });
