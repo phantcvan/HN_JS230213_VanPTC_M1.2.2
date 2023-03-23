@@ -1,0 +1,144 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0px 20px;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+    width: 80%;
+
+}
+
+h1{
+    text-align: center;
+}
+header {
+    background-color: rgb(17,17,34);
+    color:rgb(222,99,140);
+    text-align: center;
+    padding: 10px 0px;
+    font-size: larger;
+}
+section {
+    background-color: rgb(29,29,57);
+    /* height: 100vh; */
+}
+section .review{
+    background-color: #fff;
+    border: 1px solid rgb(29,29,57);
+    border-radius: 5px;
+    text-align: center;
+    width:80%;
+    margin: 0 auto;
+}
+section .rate{
+    top: 80px;
+    text-align: center;
+    background-color: rgb(241,238,241);
+}
+section .rateButton{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 10px 5px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+}
+section .rateButton:hover{
+    background-color: rgb(243, 169, 192);
+    outline: none;
+}
+section .click{
+    background-color: rgb(237,89,136);
+}
+section .feedback{
+    margin: 10px 5px;
+    width:80%;
+    padding: 10px 5px;
+}
+section .send{
+    margin-left: -110px;
+    width: 10%;
+    background-color: rgb(197,195,197);
+    border:none;
+    border-radius: 5px;
+}
+section #noti{
+    padding: 5px;
+    margin: 5px;
+}
+.total{
+    color:#fff;
+    width:80%;
+    margin:2% 2%;
+}
+.total span{
+    margin:5% 13%;
+}
+.display{
+    background-color: #fff;
+    border: 1px solid rgb(29,29,57);
+    border-radius: 5px;
+    width:80%;
+    margin: 0 auto;
+}
+.result{
+margin:5px;
+}
+.result .point{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: rgb(237,89,136);
+    border:none;
+    margin-top:-20px;
+    margin-left:-110px;
+
+}
+.result .point .icon{
+    outline: none;
+    border:none;
+}
+.result .reviewDisplay{
+    background-color: #fff;
+    border-radius: 5px;
+    width:80%;
+    margin: 0 auto;
+        display: flex;
+    justify-content: space-between;
+
+
+}
+.display .displayFeedback{
+    margin: 0px 20px 20px;
+}
+
+
+
+
+@media (max-width:900px){
+    .result .point{
+        margin-left:-70px;
+    }
+    
+}
+
+@media (max-width:486px){
+    section .feedback{
+        margin: 5px 5px;
+        width:90%;
+        padding: 5px 5px;
+    }
+    section .send{
+        margin-left: -80px;
+        width: 20%;
+        background-color: rgb(197,195,197);
+        border:none;
+        border-radius: 5px;
+    }
+    
+    .result .point{
+        margin-left:-50px;
+    }
+    
+}
